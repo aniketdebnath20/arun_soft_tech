@@ -1,0 +1,84 @@
+
+"use client";
+
+import React from 'react';
+import { motion } from 'framer-motion';
+import { services } from '@/lib/data';
+import { cn } from '@/lib/utils';
+import { Button } from '@/components/ui/button';
+import { ArrowRight, CheckCircle } from 'lucide-react';
+import Link from 'next/link';
+import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
+
+export function AllServices() {
+  return (
+    <section id="services" className="py-16 md:py-24">
+      <div className="container max-w-7xl mx-auto px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ amount: 0.3 }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
+        >
+          <h1
+            className="text-4xl md:text-6xl font-bold mb-6 tracking-tighter"
+          >
+             <span className="bg-gradient-to-r from-foreground via-primary to-accent bg-clip-text text-transparent">
+                Our Services
+              </span>
+          </h1>
+          <p className="text-lg max-w-3xl mx-auto text-muted-foreground">
+            We provide a wide range of digital services to help your business grow. Explore our offerings below.
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {services.map((service, index) => (
+            <motion.div
+              key={service.id}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ amount: 0.2 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className="h-full"
+            >
+                <Card className="h-full flex flex-col group border-transparent transition-all duration-300 hover:border-primary/20 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2 bg-card/50 backdrop-blur-sm">
+                    <CardHeader className="flex-shrink-0">
+                        <div className="flex items-center gap-4">
+                            <div className={cn("w-16 h-16 rounded-2xl flex items-center justify-center text-white bg-gradient-to-br", service.gradient)}>
+                                <service.icon className="w-8 h-8" />
+                            </div>
+                            <CardTitle className="text-2xl font-bold text-gradient">{service.title}</CardTitle>
+                        </div>
+                    </CardHeader>
+                    <CardContent className="flex-grow flex flex-col justify-between">
+                        <div>
+                            <p className="text-muted-foreground mb-6">
+                                {service.description}
+                            </p>
+                            <ul className="space-y-3 text-base text-muted-foreground">
+                                {service.details.map((detail, i) => (
+                                <li key={i} className="flex items-center gap-3">
+                                    <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
+                                    <span>{detail}</span>
+                                </li>
+                                ))}
+                            </ul>
+                        </div>
+                        <div className="mt-8">
+                             <Button asChild className="w-full bg-gradient-to-r from-primary to-accent text-white">
+                                <Link href="/contact">
+                                    Get a Quote <ArrowRight className="ml-2 h-4 w-4" />
+                                </Link>
+                            </Button>
+                        </div>
+                    </CardContent>
+                </Card>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

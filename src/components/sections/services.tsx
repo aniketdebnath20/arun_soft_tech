@@ -13,7 +13,7 @@ import { TiltCard } from '../ui/tilt-card';
 
 export function Services() {
   return (
-    <section id="services" className="py-16 md:py-24 bg-muted/30">
+    <section id="services" className="py-16 md:py-24">
       <div className="container max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 50 }}

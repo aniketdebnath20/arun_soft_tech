@@ -181,7 +181,7 @@ export function Footer() {
                 </div>
               </Link>
               <p className="text-muted-foreground leading-relaxed">
-                Building tomorrow's digital experiences with cutting-edge
+                Building tomorrow&apos;s digital experiences with cutting-edge
                 technology and innovative solutions.
               </p>
               <div className="space-y-3">
@@ -251,7 +251,7 @@ export function Footer() {
               </h4>
               <div className="flex space-x-4">
                 {socialLinks.map(({ icon: Icon, href, label }) => (
-                  <a
+                  <Link
                     key={label}
                     href={href}
                     target="_blank"
@@ -262,7 +262,7 @@ export function Footer() {
                     <div className="relative z-10">
                       <Icon className="h-5 w-5" />
                     </div>
-                  </a>
+                  </Link>
                 ))}
               </div>
               <div className="pt-4 text-left">

@@ -8,14 +8,14 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Phone, Mail, MapPin, User, MessageSquare } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { useToast } from "@/hooks/use-toast";
 import { Card } from "@/components/ui/card";
-import { getPlaceholderImage } from "@/lib/placeholder-images";
 import { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
+import { getPlaceholderImage } from "@/lib/palceholder-images";
+import { Input } from "../ui/input";
+import { Textarea } from "../ui/textarea";
 
 
 const formSchema = z.object({
@@ -72,9 +72,9 @@ export function Contact() {
           "text-center mb-16 transition-all duration-700 ease-out",
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
         )}>
-          <h2 className="text-3xl md:text-4xl font-bold text-gradient">Let's Build Together</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-gradient">Let&apos;s Build Together</h2>
           <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
-              Have a project in mind or just want to say hello? We'd love to hear from you. Fill out the form or use our contact details below.
+              Have a project in mind or just want to say hello? We&apos;d love to hear from you. Fill out the form or use our contact details below.
           </p>
         </div>
 

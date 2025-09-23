@@ -31,7 +31,7 @@ export default function AboutPage() {
               <span className="text-foreground">One Project at a Time</span>
             </h1>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              We're a passionate team of innovators, designers, and developers dedicated to creating
+              We&apos;re a passionate team of innovators, designers, and developers dedicated to creating
               digital experiences that transform businesses and delight users.
             </p>
           </motion.div>
@@ -59,7 +59,7 @@ export default function AboutPage() {
                   commitment to excellence.
                 </p>
                 <p>
-                  Today, we're proud to be a leading digital solutions provider, having helped over
+                  Today, we&apos;re proud to be a leading digital solutions provider, having helped over
                   150 businesses transform their digital presence and achieve remarkable growth.
                 </p>
               </div>

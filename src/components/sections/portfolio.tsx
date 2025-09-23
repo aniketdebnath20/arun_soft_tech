@@ -11,8 +11,6 @@ import { projects, userInterestsOptions, Project as ProjectType } from '@/lib/da
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { getRecommendations } from '@/app/actions';
-import { cn } from '@/lib/utils';
 
 export function Portfolio() {
   const [isPending, startTransition] = useTransition();
@@ -26,14 +24,14 @@ export function Portfolio() {
       return;
     }
 
-    setActiveInterest(interest);
-    startTransition(async () => {
-      const result = await getRecommendations({ userInterests: interest });
-      if (result && result.recommendations) {
-        const projectIds = result.recommendations.split(',').map(id => id.trim());
-        setRecommendedProjects(projectIds);
-      }
-    });
+    // setActiveInterest(interest);
+    // startTransition(async () => {
+    //   const result = await getRecommendations({ userInterests: interest });
+    //   if (result && result.recommendations) {
+    //     const projectIds = result.recommendations.split(',').map(id => id.trim());
+    //     setRecommendedProjects(projectIds);
+    //   }
+    // });
   };
 
   const displayedProjects = activeInterest && recommendedProjects.length > 0
@@ -42,7 +40,7 @@ export function Portfolio() {
 
   return (
     <section id="portfolio" className="py-16 md:py-24">
-      <div className="container">
+      <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}

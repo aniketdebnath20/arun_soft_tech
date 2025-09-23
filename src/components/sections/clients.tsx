@@ -8,7 +8,7 @@ import { clients } from '@/lib/data';
 export function Clients() {
   return (
     <section id="clients" className="py-16 md:py-24">
-      <div className="container">
+      <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}

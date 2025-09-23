@@ -96,7 +96,7 @@ export default function ContactPage() {
           </div>
           <h2 className="text-3xl font-bold mb-4 text-green-400">Message Sent!</h2>
           <p className="text-muted-foreground mb-8 leading-relaxed">
-            Thank you for reaching out. We've received your message and will get back to you within 24 hours.
+            Thank you for reaching out. We&apos;ve received your message and will get back to you within 24 hours.
           </p>
           <Button
             onClick={() => {
@@ -131,7 +131,7 @@ export default function ContactPage() {
               Get In <span className="holographic-text">Touch</span>
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed">
-              Ready to transform your digital presence? Let's discuss your project and bring your vision to life.
+              Ready to transform your digital presence? Let&apos;s discuss your project and bring your vision to life.
             </p>
           </div>
         </div>
@@ -164,7 +164,7 @@ export default function ContactPage() {
           <div className="mb-12">
             <h2 className="text-4xl font-bold mb-4 text-gradient">Start Your Project</h2>
             <p className="text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-              Fill out the form below and we'll get back to you with a detailed proposal for your project.
+              Fill out the form below and we&apos;ll get back to you with a detailed proposal for your project.
             </p>
           </div>
 
@@ -213,6 +213,7 @@ export default function ContactPage() {
                   <Label htmlFor="service" className="mb-2 block">Service Needed *</Label>
                   <select
                     id="service"
+                    aria-label="service"
                     required
                     value={formData.service}
                     onChange={(e) => handleInputChange("service", e.target.value)}
@@ -232,6 +233,7 @@ export default function ContactPage() {
                 <Label htmlFor="budget" className="mb-2 block">Project Budget</Label>
                 <select
                   id="budget"
+                  aria-label="budget"
                   value={formData.budget}
                   onChange={(e) => handleInputChange("budget", e.target.value)}
                   className="w-full px-3 py-2 bg-background/50 border border-border/30 rounded-md focus:border-primary focus:bg-background/70"

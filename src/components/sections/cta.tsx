@@ -8,9 +8,9 @@ import { ArrowRight } from 'lucide-react';
 
 export function Cta() {
   return (
-    <section className="py-24 bg-background">
+    <section className="py-24">
       <div className="container mx-auto px-6">
-        <div className="relative bg-muted/40 rounded-3xl p-10 md:p-16 overflow-hidden">
+        <div className="relative bg-muted/70 rounded-3xl p-10 md:p-16 overflow-hidden">
           <motion.div
             className="absolute -top-10 -right-10 w-20 h-20 bg-foreground rounded-full"
             animate={{

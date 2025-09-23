@@ -100,8 +100,8 @@ export function AboutTimeline() {
     }, []);
 
     return (
-        <section ref={sectionRef} className="py-16 md:py-24  overflow-hidden">
-            <div className="container max-w-5xl">
+        <section ref={sectionRef} className="py-16 md:py-24 overflow-hidden">
+            <div className="container max-w-5xl mx-auto">
                 <motion.div
                     initial={{ opacity: 0, y: 50 }}
                     animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}

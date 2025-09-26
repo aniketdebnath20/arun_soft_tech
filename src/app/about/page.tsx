@@ -20,7 +20,7 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ amount: 0.3 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, delay :1 }}
             className="text-center"
           >
             <h1 className="text-4xl md:text-6xl font-bold mb-8">
@@ -45,7 +45,7 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ amount: 0.2 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8 , delay : 1.1 }}
             className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
           >
             <div>

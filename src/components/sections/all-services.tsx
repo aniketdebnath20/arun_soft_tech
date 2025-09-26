@@ -43,7 +43,7 @@ export function AllServices() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="h-full"
             >
-                <Card className="h-full flex flex-col group border-transparent transition-all duration-300 hover:border-primary/20 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2 bg-card/50 backdrop-blur-sm">
+                <Card className="h-full flex flex-col group glassmorphism transition-all duration-300 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2">
                     <CardHeader className="flex-shrink-0">
                         <div className="flex items-center gap-4">
                             <div className={cn("w-16 h-16 rounded-2xl flex items-center justify-center text-white bg-gradient-to-br", service.gradient)}>
@@ -66,10 +66,15 @@ export function AllServices() {
                                 ))}
                             </ul>
                         </div>
-                        <div className="mt-8">
-                             <Button asChild className="w-full bg-gradient-to-r from-primary to-accent text-white">
+                        <div className="mt-8 flex items-center gap-4">
+                            <Button asChild className="w-full bg-gradient-to-r from-primary to-accent text-white">
                                 <Link href="/contact">
                                     Get a Quote <ArrowRight className="ml-2 h-4 w-4" />
+                                </Link>
+                            </Button>
+                             <Button asChild variant="outline" className="w-full">
+                                <Link href={`/services/${service.slug}`}>
+                                    View More
                                 </Link>
                             </Button>
                         </div>

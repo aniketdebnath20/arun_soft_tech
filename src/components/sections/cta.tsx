@@ -10,17 +10,30 @@ export function Cta() {
   return (
     <section className="py-24">
       <div className="container mx-auto px-6">
-        <div className="relative bg-muted/70 rounded-3xl p-10 md:p-16 overflow-hidden">
+        <div className="relative bg-muted/70 rounded-3xl p-10 md:p-16 overflow-hidden shadow-2xl transition-all duration-300 hover:shadow-primary/20">
           <motion.div
-            className="absolute -top-10 -right-10 w-20 h-20 bg-foreground rounded-full"
+            className="absolute -top-10 -right-10 w-20 h-20 bg-primary/20 rounded-full"
             animate={{
               y: [0, -10, 0, 10, 0],
               x: [0, 5, 0, -5, 0],
             }}
             transition={{
-              duration: 5,
+              duration: 8,
               ease: "easeInOut",
               repeat: Infinity,
+            }}
+          ></motion.div>
+           <motion.div
+            className="absolute -bottom-12 -left-12 w-32 h-32 bg-accent/10 rounded-full"
+            animate={{
+              y: [0, 10, 0, -10, 0],
+              x: [0, -5, 0, 5, 0],
+            }}
+            transition={{
+              duration: 10,
+              ease: "easeInOut",
+              repeat: Infinity,
+              delay: 2,
             }}
           ></motion.div>
 
@@ -37,7 +50,7 @@ export function Cta() {
               <Button
                 asChild
                 size="lg"
-                className="bg-lime-300 text-black hover:bg-lime-400 rounded-full text-lg px-8 py-6"
+                className="bg-lime-300 text-black hover:bg-lime-400 rounded-full text-lg px-8 py-6 shadow-lg hover:shadow-xl transition-shadow"
               >
                 <Link href="/contact">
                   Contact us

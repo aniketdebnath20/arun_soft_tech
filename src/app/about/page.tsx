@@ -20,7 +20,7 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ amount: 0.3 }}
-            transition={{ duration: 0.8, delay :1 }}
+            transition={{ duration: 0.8, delay: 1 }}
             className="text-center"
           >
             <h1 className="text-4xl md:text-6xl font-bold mb-8">
@@ -45,7 +45,7 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ amount: 0.2 }}
-            transition={{ duration: 0.8 , delay : 1.1 }}
+            transition={{ duration: 0.8, delay: 1.1 }}
             className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
           >
             <div>
@@ -112,7 +112,7 @@ export default function AboutPage() {
                 viewport={{ amount: 0.3 }}
                 transition={{ duration: 0.7, delay: index * 0.15 }}
                 className="group p-1 bg-gradient-to-br rounded-3xl shadow-xl relative overflow-hidden"
-                style={{'--from-color': `var(--from-color, ${member.color.split(' ')[0]})`, '--to-color': `var(--to-color, ${member.color.split(' ')[2]})`} as React.CSSProperties}
+                style={{ '--from-color': `var(--from-color, ${member.color.split(' ')[0]})`, '--to-color': `var(--to-color, ${member.color.split(' ')[2]})` } as React.CSSProperties}
               >
                 <div className={`p-8 rounded-[22px] h-full glassmorphism flex flex-col items-center`}>
                   <div className={`w-24 h-24 mb-6 rounded-full bg-gradient-to-br ${member.color} flex items-center justify-center text-4xl font-bold text-white`}>
@@ -122,8 +122,8 @@ export default function AboutPage() {
                   <p className="gradient-text text-sm font-semibold mb-4">{member.role}</p>
                   <p className={`text-sm flex-grow ${isDark ? 'text-slate-400' : 'text-gray-600'}`}>{member.bio}</p>
                   <div className="flex gap-4 mt-6">
-                    <motion.button whileHover={{ scale: 1.2, y: -2 }} className="text-slate-400 hover:text-primary transition-colors duration-200 ease-in-out hover:drop-shadow-[0_0_8px_hsl(var(--primary))]"><Linkedin size={20}/></motion.button>
-                    <motion.button whileHover={{ scale: 1.2, y: -2 }} className="text-slate-400 hover:text-primary transition-colors duration-200 ease-in-out hover:drop-shadow-[0_0_8px_hsl(var(--primary))]"><Github size={20}/></motion.button>
+                    <motion.button whileHover={{ scale: 1.2, y: -2 }} className="text-slate-400 hover:text-primary transition-colors duration-200 ease-in-out hover:drop-shadow-[0_0_8px_hsl(var(--primary))]"><Linkedin size={20} /></motion.button>
+                    <motion.button whileHover={{ scale: 1.2, y: -2 }} className="text-slate-400 hover:text-primary transition-colors duration-200 ease-in-out hover:drop-shadow-[0_0_8px_hsl(var(--primary))]"><Github size={20} /></motion.button>
                   </div>
                 </div>
               </motion.div>

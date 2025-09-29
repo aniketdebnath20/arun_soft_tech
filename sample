@@ -1,0 +1,79 @@
+import mysql from "mysql2/promise";
+
+const db = await mysql.createConnection({
+  host: "localhost",
+  user: "root", // <-- no space here
+  password: "aniket2005",
+  database: "contact_form",
+});
+
+const [data] = await db.execute(
+  `INSERT INTO contact (name, email, phone, message, service)
+   VALUES (?, ?, ?, ?, ?)`,
+  [
+    'Aniket Debnath',
+    'aniket@example.com',
+    '1246879832',
+    'Hello, I am interested in your service in web developer.',
+    'Web Development'
+  ]
+);
+
+console.log("Row inserted:", data);
+
+
+// insert the data
+
+// const contactAction = async ({ data }) => {
+//     const { service, email, phoneNumber, message, firstName } = data
+//     const data = await db.excute(`insert into contact_form (firstName,email,services,phoneNumber,message) values (?)`, [firstName, email, phoneNumber, service, message]);
+
+//     console.log("data success", data);
+
+// }
+
+
+
+// app/api/subscribe/route.js
+import { db } from '@/lib/db';
+
+export async function POST(req) {
+  try {
+    const { email } = await req.json();
+
+    if (!email || !email.includes('@')) {
+      return new Response(JSON.stringify({ error: 'Invalid email' }), { status: 400 });
+    }
+
+    // Insert into MySQL
+    await db.query(
+      'INSERT INTO email_subscriptions (email) VALUES (?)',
+      [email]
+    );
+
+    return new Response(JSON.stringify({ message: 'Subscribed successfully!' }), { status: 200 });
+  } catch (error) {
+    console.error(error);
+    return new Response(JSON.stringify({ error: 'Something went wrong' }), { status: 500 });
+  }
+}
+
+
+try {
+  const res = await fetch('/api/subscribe', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email }),
+  });
+
+  const data = await res.json();
+  if (res.ok) {
+    setMessage(' Subscribed successfully!');
+    setEmail('');
+  } else {
+    setMessage(` ${data.error}`);
+  }
+} catch (err) {
+  console.error(err);
+  setMessage('Something went wrong.');
+}

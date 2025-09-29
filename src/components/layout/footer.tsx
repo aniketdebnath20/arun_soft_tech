@@ -86,8 +86,8 @@ export function Footer() {
   };
 
   return (
-    <footer className="border-t border-border/50 relative overflow-hidden z-10">
-      <div className="absolute inset-0 opacity-5">
+    <footer className="relative overflow-hidden z-10">
+      {/* <div className="absolute inset-0 opacity-5">
         <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <pattern
@@ -114,7 +114,7 @@ export function Footer() {
           </defs>
           <rect width="100%" height="100%" fill="url(#circuit)" />
         </svg>
-      </div>
+      </div> */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="py-16 border-b border-border/30">
           <motion.div
@@ -135,13 +135,13 @@ export function Footer() {
               onSubmit={handleNewsletterSubmit}
               className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto"
             >
-              <div className="relative p-0.5 rounded-lg bg-gradient-to-r from-primary to-accent flex-1">
+              <div className="relative p-0.5 rounded-[4px] bg-gradient-to-r from-primary to-accent flex-1">
                 <Input
                   type="email"
                   placeholder="Enter your email address"
                   value={email}
                   onChange={e => setEmail(e.target.value)}
-                  className="bg-background border-none w-full rounded-md focus-visible:ring-0 focus-visible:ring-offset-0"
+                  className="bg-background border-none w-full rounded-[3px] focus-visible:ring-0 focus-visible:ring-offset-0"
                   disabled={isSubscribing}
                   required
                 />
@@ -149,7 +149,7 @@ export function Footer() {
               <Button
                 type="submit"
                 disabled={isSubscribing || !email.trim()}
-                className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white whitespace-nowrap disabled:opacity-50 rounded-lg"
+                className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white whitespace-nowrap disabled:opacity-50 rounded-[4px]"
               >
                 {isSubscribing ? (
                   <>
@@ -294,18 +294,18 @@ export function Footer() {
           </motion.div>
           <div className="flex items-center space-x-6">
             <div className="flex space-x-6 text-sm">
-              <a
+              <Link
                 href="#"
                 className="text-muted-foreground hover:text-primary transition-colors duration-200"
               >
                 Privacy Policy
-              </a>
-              <a
+              </Link>
+              <Link
                 href="#"
                 className="text-muted-foreground hover:text-primary transition-colors duration-200"
               >
                 Terms of Service
-              </a>
+              </Link>
             </div>
             <Button
               size="sm"

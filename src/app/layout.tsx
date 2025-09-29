@@ -12,6 +12,7 @@ import { Suspense, useState, useEffect } from 'react';
 import { NavigationEvents } from '@/components/navigation-events';
 import { PageLoader } from '@/components/page-loader';
 import IntroAnimation from '@/components/intro-animation';
+import { AnimatedBackground } from '@/components/ui/animated-background';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
@@ -28,12 +29,12 @@ export default function RootLayout({
   useEffect(() => {
     setIsClient(true);
   }, []);
-  
+
   useEffect(() => {
     if (isClient) {
       // Phase 1: Keep animations paused and show intro
       document.body.classList.add('loading-active');
-      
+
       // Phase 2: After 3s, trigger intro text wipe-out animation
       const introTimer = setTimeout(() => {
         setShowIntro(false);
@@ -47,7 +48,7 @@ export default function RootLayout({
       // Phase 4: After 5s (giving background 1s to animate), show content
       const contentTimer = setTimeout(() => {
         setContentVisible(true);
-      }, 5000); 
+      }, 5000);
 
       return () => {
         clearTimeout(introTimer);
@@ -56,20 +57,21 @@ export default function RootLayout({
       };
     }
   }, [isClient]);
-  
+
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-          <title>ZenithTech - Innovative Technology & Software Solutions</title>
-          <meta name="description" content="ZenithTech pioneers the future of technology with expert Web & Mobile Development, UI/UX Design, Cloud Solutions, and strategic Consulting." />
-          <meta name="keywords" content="web development, mobile app development, ui/ux design, cloud solutions, tech consulting" />
+        <title>ZenithTech - Innovative Technology & Software Solutions</title>
+        <meta name="description" content="ZenithTech pioneers the future of technology with expert Web & Mobile Development, UI/UX Design, Cloud Solutions, and strategic Consulting." />
+        <meta name="keywords" content="web development, mobile app development, ui/ux design, cloud solutions, tech consulting" />
       </head>
       <body
         className={cn(
-          'min-h-screen bg-background font-sans antialiased',
+          'min-h-screen font-sans antialiased',
           inter.variable
         )}
       >
+        <AnimatedBackground />
         {isClient && <IntroAnimation isVisible={showIntro} />}
         <ThemeProvider
           attribute="class"

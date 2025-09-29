@@ -4,17 +4,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Play, Sparkles } from 'lucide-react';
-import { useTheme } from 'next-themes';
+import { ArrowRight, Play } from 'lucide-react';
 import Link from 'next/link';
 
 export function Hero() {
-  const { theme } = useTheme();
-  const isDark = theme === 'dark';
-
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      <div className="absolute inset-0 opacity-5">
+      {/* <div className="absolute inset-0 opacity-5">
         <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <pattern
@@ -35,7 +31,7 @@ export function Hero() {
           </defs>
           <rect width="100%" height="100%" fill="url(#circuit)" />
         </svg>
-      </div>
+      </div> */}
       <div className="relative z-10 container mx-auto px-6 text-center">
         {/* <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -85,7 +81,7 @@ export function Hero() {
           <Button
             size="lg"
             asChild
-            className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold rounded-2xl hover:scale-105 transition-all duration-300 shadow-2xl"
+            className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold rounded-full hover:scale-105 transition-all duration-300 shadow-2xl"
           >
             <Link href="/contact">
               Start Your Project
@@ -98,7 +94,7 @@ export function Hero() {
             size="lg"
             asChild
             className={
-              'px-8 py-4 font-semibold rounded-2xl hover:scale-105 transition-all duration-300 glassmorphism border-2 border-border text-muted-foreground hover:text-foreground hover:border-muted-foreground'
+              'px-8 py-4 font-semibold rounded-full hover:scale-105 transition-all duration-300 glassmorphism border-2 border-border text-muted-foreground hover:text-foreground hover:border-muted-foreground'
             }
           >
             <Link href="/about">

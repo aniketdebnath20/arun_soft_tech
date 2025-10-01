@@ -1,5 +1,5 @@
 
-import { Code, Smartphone, Palette, Cloud, Users, type LucideIcon, Rocket, Award, Building2, Shield, CheckCircle, BrainCircuit, FileText, Search, Brush, HardHat, Orbit, HeartHandshake, Puzzle, HelpCircle, TrendingUp, BadgeDollarSign, Telescope, Lightbulb } from 'lucide-react';
+import { Code, Smartphone, Palette, Cloud, Users, type LucideIcon, Rocket, Award, Building2, Shield, CheckCircle, BrainCircuit, FileText, Search, Brush, HardHat, Orbit, HeartHandshake, Puzzle, TrendingUp, BadgeDollarSign, Telescope, Lightbulb, PenTool, Wand2, Sparkles, SearchCode } from 'lucide-react';
 import { getPlaceholderImage } from './palceholder-images';
 
 export type Service = {
@@ -114,6 +114,134 @@ export const services: Service[] = [
       { question: "Can you redesign an existing product?", answer: "Yes, we love helping companies improve their products by redesigning them with a user-centered approach." },
     ],
     relatedProjectIds: ['project-03'],
+  },
+  {
+    id: 7,
+    icon: Wand2,
+    title: "Logo Design",
+    slug: "logo-design",
+    description: "Creating a memorable and impactful visual identity for your brand.",
+    gradient: "from-yellow-400 to-orange-500",
+    details: ["Brand discovery", "Concept sketches", "Vector finalization", "Style guide"],
+    longDescription: "A great logo is the cornerstone of your brand identity. Our design process focuses on creating a unique and timeless mark that effectively communicates your brand's values and resonates with your target audience. We deliver a complete logo package with guidelines for use across all media.",
+    features: [
+      { title: "Versatile Concepts", description: "Exploring a range of styles to find the perfect visual representation for your brand." },
+      { title: "Vector Graphics", description: "Delivering scalable vector files that look sharp at any size, from a business card to a billboard." },
+      { title: "Brand Guidelines", description: "Providing a comprehensive style guide to ensure consistent use of your new logo." }
+    ],
+    process: [
+      { icon: Lightbulb, title: "Discovery", description: "We dive deep into your brand, audience, and industry to inform our design direction." },
+      { icon: PenTool, title: "Conceptualization", description: "Our designers sketch and explore multiple concepts to find the most compelling ideas." },
+      { icon: Brush, title: "Refinement", description: "We refine the chosen concepts based on your feedback, perfecting every curve and color." },
+      { icon: Award, title: "Delivery", description: "You receive a full suite of logo files and a brand guide for successful implementation." },
+    ],
+    benefits: [
+      { icon: Users, title: "Memorable First Impression", description: "A professional logo makes your brand stand out and captures attention." },
+      { icon: Building2, title: "Strong Brand Identity", description: "Establish a consistent and recognizable brand presence across all platforms." },
+      { icon: TrendingUp, title: "Builds Trust", description: "A well-designed logo signals professionalism and builds credibility with customers." },
+    ],
+    faqs: [
+      { question: "How many logo concepts will I see?", answer: "Our standard package includes 3-5 initial concepts for you to review and provide feedback on." },
+      { question: "What files will I receive?", answer: "You'll get a complete package including vector files (AI, EPS, SVG) and raster files (PNG, JPG) for both web and print." },
+      { question: "How long does the logo design process take?", answer: "Typically, the process takes 2-4 weeks from initial discovery to final file delivery, depending on feedback rounds." },
+    ],
+    relatedProjectIds: [],
+  },
+  {
+    id: 8,
+    icon: Brush,
+    title: "Graphic Design",
+    slug: "graphic-design",
+    description: "Producing stunning visual assets for marketing, branding, and digital products.",
+    gradient: "from-teal-400 to-cyan-600",
+    details: ["Marketing collateral", "Social media graphics", "Infographics", "Presentation design"],
+    longDescription: "Our graphic design services help you communicate your message visually. From digital ad campaigns to print materials, we create compelling visuals that capture attention, tell your story, and drive action. We ensure all designs are consistent with your brand identity.",
+    features: [
+      { title: "Digital & Print", description: "Creating assets for everything from social media campaigns to trade show banners." },
+      { title: "Marketing Materials", description: "Designing brochures, flyers, and digital ads that convert." },
+      { title: "Brand Consistency", description: "Ensuring all visual communications are aligned with your brand's style and voice." }
+    ],
+    process: [
+      { icon: Telescope, title: "Briefing", description: "We start by understanding your project goals, target audience, and key messaging." },
+      { icon: Palette, title: "Design", description: "Our designers create initial concepts and mockups for your review." },
+      { icon: Puzzle, title: "Feedback & Iteration", description: "We work with you to refine the designs until they are pixel-perfect." },
+      { icon: Award, title: "Finalization", description: "We deliver all the final files in the required formats for web and print." },
+    ],
+    benefits: [
+      { icon: TrendingUp, title: "Enhanced Engagement", description: "High-quality visuals are proven to increase engagement and interaction." },
+      { icon: Users, title: "Clear Communication", description: "Effectively communicate complex information through infographics and visual storytelling." },
+      { icon: Building2, title: "Professional Polish", description: "Elevate your brand with professional, high-quality design across all touchpoints." },
+    ],
+    faqs: [
+      { question: "Can you create a full set of marketing materials?", answer: "Yes, we can design a complete package of digital and print materials to support your marketing campaigns." },
+      { question: "What's your design style?", answer: "Our team is versatile and can adapt to your existing brand style or help you create a new one, from modern and minimalist to bold and illustrative." },
+      { question: "Do you offer retainers for ongoing design needs?", answer: "Yes, we offer monthly retainer packages for businesses that need consistent, ongoing design support." },
+    ],
+    relatedProjectIds: [],
+  },
+    {
+    id: 9,
+    icon: Sparkles,
+    title: "UI Redesign",
+    slug: "ui-redesign",
+    description: "Refreshing and modernizing your product's user interface for a better experience.",
+    gradient: "from-indigo-500 to-purple-600",
+    details: ["UI audit", "Modernization", "Component library update", "Usability improvements"],
+    longDescription: "Is your app or website looking outdated? Our UI redesign service breathes new life into existing products. We conduct a thorough audit of your current interface, identify areas for improvement, and apply modern design principles to enhance usability, aesthetics, and overall user satisfaction.",
+    features: [
+      { title: "Interface Audit", description: "A detailed analysis of your current UI to identify pain points and opportunities." },
+      { title: "Modern Design Trends", description: "Applying contemporary design patterns, typography, and color theory." },
+      { title: "Design System Refresh", description: "Updating or creating a new component library for consistency and future scalability." }
+    ],
+    process: [
+      { icon: Search, title: "Audit & Analysis", description: "We review your existing UI, user feedback, and analytics to pinpoint key issues." },
+      { icon: Brush, title: "Redesign & Prototype", description: "We create new high-fidelity mockups and interactive prototypes of the improved interface." },
+      { icon: Puzzle, title: "User Testing", description: "We validate the new design with real users to ensure it meets their needs and expectations." },
+      { icon: HardHat, title: "Developer Handoff", description: "We provide a complete design system and clear specifications for seamless implementation." },
+    ],
+    benefits: [
+      { icon: TrendingUp, title: "Improved User Satisfaction", description: "A modern, intuitive UI leads to happier users and higher retention." },
+      { icon: BadgeDollarSign, title: "Increased Conversions", description: "By removing friction and improving clarity, we can boost conversion rates." },
+      { icon: Rocket, title: "Competitive Edge", description: "Stay ahead of the competition with a fresh, modern look and feel." },
+    ],
+    faqs: [
+      { question: "Will a redesign interrupt our service?", answer: "No, we work on the new design in parallel. Implementation can be phased to ensure a smooth transition with minimal disruption." },
+      { question: "Is this a full UX overhaul or just a visual refresh?", answer: "It can be either. We can focus purely on visual modernization (a 'repaint') or a deeper redesign that also addresses underlying UX issues." },
+      { question: "How do you ensure the new design is better?", answer: "We use a data-informed process, combining design principles with insights from your analytics and direct user feedback and testing." },
+    ],
+    relatedProjectIds: ['project-03'],
+  },
+  {
+    id: 10,
+    icon: SearchCode,
+    title: "SEO Optimization",
+    slug: "seo-optimization",
+    description: "Improving your website's visibility on search engines to drive organic traffic.",
+    gradient: "from-lime-500 to-green-600",
+    details: ["Keyword research", "On-page SEO", "Technical SEO audit", "Link building"],
+    longDescription: "Get discovered by more customers with our SEO optimization services. We use proven, white-hat techniques to improve your website's ranking on search engines like Google. Our comprehensive approach covers everything from technical optimization and content strategy to link building, all designed to increase your organic traffic and generate more leads.",
+    features: [
+      { title: "Technical SEO", description: "Optimizing your site's structure, speed, and mobile-friendliness for better crawling and indexing." },
+      { title: "Content Strategy", description: "Identifying and targeting keywords your customers are searching for, and creating content that ranks." },
+      { title: "Local SEO", description: "Putting your business on the map and helping local customers find you." }
+    ],
+    process: [
+      { icon: Telescope, title: "SEO Audit", description: "We perform a comprehensive audit of your website to identify technical issues and opportunities." },
+      { icon: Lightbulb, title: "Strategy & Planning", description: "We develop a customized SEO strategy based on keyword research and competitive analysis." },
+      { icon: HardHat, title: "Implementation", description: "We execute on-page and technical optimizations to improve your site's health and relevance." },
+      { icon: TrendingUp, title: "Reporting & Analysis", description: "We track your rankings, traffic, and conversions, providing regular reports on your progress." },
+    ],
+    benefits: [
+      { icon: BadgeDollarSign, title: "Increased Organic Traffic", description: "Attract more qualified visitors to your website without paying for ads." },
+      { icon: Building2, title: "Higher Quality Leads", description: "Reach customers who are actively searching for the products or services you offer." },
+      { icon: Users, title: "Build Brand Authority", description: "Ranking high in search results builds trust and positions you as a leader in your industry." },
+    ],
+    faqs: [
+      { question: "How long does it take to see results from SEO?", answer: "SEO is a long-term strategy. You can typically expect to see initial improvements within 3-6 months, with more significant results over time." },
+      { question: "What is 'technical SEO'?", answer: "It refers to website and server optimizations that help search engine spiders crawl and index your site more effectively." },
+      { question: "Is link building still important?", answer: "Yes, high-quality backlinks from reputable websites are still one of the most important ranking factors for search engines." },
+    ],
+    relatedProjectIds: [],
   },
   {
     id: 4,

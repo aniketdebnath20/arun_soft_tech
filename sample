@@ -32,10 +32,73 @@ console.log("Row inserted:", data);
 
 // }
 
+/////
 
 
+
+// direct function call 
+
+const form = async (req: any) => {
+
+  try {
+    const { firstname, lastname, email, phonenumber, service } = await req.json();
+
+    // ✅ Insert into MySQL
+    await pool.query(
+      'INSERT INTO contact_form (firstname, lastname, email, phonenumber, service) VALUES (?, ?, ?, ?, ?)',
+      [firstname, lastname, email, phonenumber, service]
+    )
+
+    //excel form data enter     // Replace this with your Google Apps Script URL
+    const GOOGLE_SHEET_WEBHOOK =
+      "https://script.google.com/macros/s/XXXXXXXXXXXX/exec";
+
+    const res = await fetch(GOOGLE_SHEET_WEBHOOK, {
+      method: "POST",
+      mode: "no-cors", // Required for Google Apps Script
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(form),
+    });
+
+
+
+  } catch (error) {
+    console.log(error)
+  }
+
+}
+
+
+/// excel daatt sacvave function or api 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/////
 // app/api/subscribe/route.js
 import { db } from '@/lib/db';
+import { error } from "console";
 
 export async function POST(req) {
   try {
@@ -76,4 +139,26 @@ try {
 } catch (err) {
   console.error(err);
   setMessage('Something went wrong.');
+}
+
+
+// google sheet code 
+function doPost(e) {
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  var data = JSON.parse(e.postData.contents);
+
+  sheet.appendRow([
+    data.firstname,
+    data.lastname,
+    data.email,
+    data.phoneNumber,
+    data.service,
+    data.countryCode,
+    data.message,
+    new Date()
+  ]);
+
+  return ContentService.createTextOutput(
+    JSON.stringify({ result: "success" })
+  ).setMimeType(ContentService.MimeType.JSON);
 }

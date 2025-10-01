@@ -26,6 +26,7 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import Link from 'next/link';
+import ContactForm from '@/components/sections/contact';
 
 const services = [
   { id: 'website-design', label: 'Website design' },
@@ -73,50 +74,26 @@ export default function ContactPage() {
 
   const watchedData = watch();
 
-  // Load data from localStorage on mount
-  // useEffect(() => {
-  //   try {
-  //     const savedData = localStorage.getItem('contactFormData');
-  //     if (savedData) {
-  //       const parsedData: Partial<FormValues> = JSON.parse(savedData);
-  //       Object.keys(parsedData).forEach((key) => {
-  //         const formKey = key as keyof FormValues;
-  //         const value = parsedData[formKey];
-  //         if (value !== undefined) {
-  //           setValuae(formKey, value, { shouldDirty: true });
-  //         }
-  //       });
-  //     }
-  //   } catch (error) {
-  //     console.error('Failed to load form data from localStorage', error);
-  //   }
-  // }, [setValue]);
-
-  // // Save data to localStorage with debounce
-  // useEffect(() => {
-  //   const timeout = setTimeout(() => {
-  //     try {
-  //       localStorage.setItem('contactFormData', JSON.stringify(watchedData));
-  //     } catch (error) {
-  //       console.error('Failed to save form data to localStorage', error);
-  //     }
-  //   }, 700);
-  //   return () => clearTimeout(timeout);
-  // }, [watchedData]);
-
   const onSubmit: SubmitHandler<FormValues> = (data) => {
     console.log('Form submitted:', data);
     setIsSubmitted(true);
 
     try {
-      // store the submitted data again (so it’s definitely saved)
+
       localStorage.setItem('contactFormData', JSON.stringify(data));
     } catch (error) {
       console.error('Failed to save form data to localStorage', error);
     }
 
-    // if you want to clear the form UI:
     reset(); // this resets the form UI but localStorage still has last submitted data
+  
+   // try catch blog mai fetch hoga api to savae the datain the database or use function 
+
+    
+
+
+
+  
   };
 
 
@@ -200,7 +177,7 @@ export default function ContactPage() {
                   <Label htmlFor="lastName">Last name</Label>
                   <Input
                     id="lastName"
-                       className='rounded-[3px]'
+                    className='rounded-[3px]'
                     placeholder="Last name"
                     {...register('lastName')}
                   />
@@ -216,7 +193,7 @@ export default function ContactPage() {
                 <Label htmlFor="email">Email</Label>
                 <Input
                   id="email"
-                     className='rounded-[3px]'
+                  className='rounded-[3px]'
                   type="email"
                   placeholder="you@company.com"
                   {...register('email')}
@@ -261,7 +238,7 @@ export default function ContactPage() {
                 <Textarea
                   id="message"
                   placeholder="Leave us a message..."
-                     className='rounded-[3px]'
+                  className='rounded-[3px]'
                   rows={4}
                   {...register('message')}
                 />

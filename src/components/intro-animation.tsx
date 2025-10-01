@@ -21,7 +21,7 @@ export default function IntroAnimation({ isVisible }: IntroAnimationProps) {
             !isVisible && "animate-text-wipe-out"
           )}
         >
-          ZenithTech Software
+          Arun Soft Tech
         </h1>
         <div className="mt-4 animate-pulse">
           <div className="w-16 h-1 bg-gradient-to-r from-primary to-primary/60 mx-auto rounded-full"></div>

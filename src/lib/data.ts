@@ -1,5 +1,5 @@
 
-import { Code, Smartphone, Palette, Cloud, Users, type LucideIcon, Rocket, Award, Building2, Shield, CheckCircle, BrainCircuit, FileText, Search, Brush, HardHat, Orbit, HeartHandshake, Puzzle, TrendingUp, BadgeDollarSign, Telescope, Lightbulb, PenTool, Wand2, Sparkles, SearchCode } from 'lucide-react';
+import { Code, Smartphone, Palette, Cloud, Users, type LucideIcon, Rocket, Award, Building2, Shield, CheckCircle, BrainCircuit, FileText, Search, Brush, HardHat, Orbit, HeartHandshake, Puzzle, TrendingUp, BadgeDollarSign, Telescope, Lightbulb, PenTool, Wand2, Sparkles, SearchCode, Server } from 'lucide-react';
 import { getPlaceholderImage } from './palceholder-images';
 
 export type Service = {
@@ -17,6 +17,7 @@ export type Service = {
   faqs: { question: string; answer: string }[];
   relatedProjectIds: string[];
 };
+
 
 export const services: Service[] = [
   {
@@ -179,7 +180,7 @@ export const services: Service[] = [
     ],
     relatedProjectIds: [],
   },
-    {
+  {
     id: 9,
     icon: Sparkles,
     title: "UI Redesign",
@@ -533,7 +534,12 @@ export const servicesMenu: { title: string; items: ServiceMenuItem[] }[] = [
       { title: "Cloud & DevOps", description: "Robust cloud infrastructure and CI/CD.", href: "/services/cloud-devops", icon: Cloud },
       { title: "Security & Audits", description: "Secure your apps against threats.", href: "/services/security-audits", icon: Shield },
       { title: "AI & Machine Learning", description: "Build intelligent, automated apps.", href: "/services/ai-machine-learning", icon: BrainCircuit },
-      { title: "CRM Platform", description: "Organize leads and client info.", href: "service/web-development", icon: FileText },
+      { title: "Logo Design", description: "Create a memorable brand identity.", href: "/services/logo-design", icon: Wand2 },
+      { title: "Graphic Design", description: "Stunning visuals for your brand.", href: "/services/graphic-design", icon: Brush },
+      { title: "UI Redesign", description: "Modernize your existing UI.", href: "/services/ui-redesign", icon: Sparkles },
+      { title: "SEO Optimization", description: "Improve your search ranking.", href: "/services/seo-optimization", icon: SearchCode },
+      { title: "CRM Platform", description: "Organize leads and client info.", href: "/services/crm-platform", icon: Users },
+      { title: "Cloud Services", description: "Reliable, secure cloud hosting.", href: "/services/cloud-hosting", icon: Server },
     ],
   },
 ];

@@ -67,16 +67,16 @@ export function AllServices() {
                             </ul>
                         </div>
                         <div className="mt-8 flex items-center gap-4">
-                            <Button asChild className="w-full bg-gradient-to-r from-primary to-accent text-white group relative overflow-hidden">
+                            <Button asChild className="w-full bg-gradient-to-r from-primary to-accent text-white group relative overflow-hidden rounded-[3px]">
                                 <Link href="/contact" className="flex items-center justify-center">
                                   <span className="relative flex items-center justify-center">
                                     <span className="block transition-all duration-500 ease-in-out group-hover:-translate-y-full group-hover:opacity-0">Get a Quote</span>
                                     <span className="absolute block transition-all duration-500 ease-in-out translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100">Get a Quote</span>
                                   </span>
-                                  <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-500 ease-in-out group-hover:rotate-90" />
+                                  <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-500 ease-in-out" />
                                 </Link>
                             </Button>
-                             <Button asChild variant="outline" className="w-full">
+                             <Button asChild variant="outline" className="w-full rounded-[20px]">
                                 <Link href={`/services/${service.slug}`}>
                                     View More
                                 </Link>

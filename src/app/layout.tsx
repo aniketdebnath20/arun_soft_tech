@@ -23,7 +23,7 @@ export default function RootLayout({
 }>) {
   const [isClient, setIsClient] = useState(false);
   const [showIntro, setShowIntro] = useState(true);
-  const [isPageLoading, setIsPageLoading] = useState(true);
+  // const [isPageLoading, setIsPageLoading] = useState(true);
   const [contentVisible, setContentVisible] = useState(false);
 
   useEffect(() => {
@@ -61,7 +61,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <title>ZenithTech - Innovative Technology & Software Solutions</title>
+        <title>ArunSoftTech - Innovative Technology & Software Solutions</title>
         <meta name="description" content="ZenithTech pioneers the future of technology with expert Web & Mobile Development, UI/UX Design, Cloud Solutions, and strategic Consulting." />
         <meta name="keywords" content="web development, mobile app development, ui/ux design, cloud solutions, tech consulting" />
       </head>

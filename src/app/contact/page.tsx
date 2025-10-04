@@ -227,7 +227,7 @@ export default function ContactPage() {
                   </Select>
                   <Input
                     id="phoneNumber"
-                    placeholder="+1 (555) 000-0000"
+                    placeholder="+91 8779182671"
                     {...register('phoneNumber')}
                     className="flex-1 rounded-[3px]"
                   />
@@ -333,27 +333,27 @@ export default function ContactPage() {
             <div>
               <h3 className="text-lg font-semibold">Call us</h3>
               <p className="text-muted-foreground mt-1 mb-4">
-                Call our team Mon-Fri from 8am to 5pm.
+                Call our team Monday to Sunday from 8am to 8pm.
               </p>
               <Link
                 href="#"
                 className="flex items-center gap-3 text-primary font-semibold hover:underline"
               >
                 <Phone className="w-5 h-5" />
-                <span>+1 (555) 000-0000</span>
+                <span>+91 8779182617 </span>
               </Link>
             </div>
             <div>
               <h3 className="text-lg font-semibold">Visit us</h3>
               <p className="text-muted-foreground mt-1 mb-4">
-                Chat to us in person at our Melbourne HQ.
+                Chat to us in person at our Mumbai HQ.
               </p>
               <Link
                 href="#"
                 className="flex items-center gap-3 text-primary font-semibold hover:underline"
               >
                 <MapPin className="w-5 h-5" />
-                <span>100 Smith Street, Collingwood VIC 3066</span>
+                <span>Mumbai Nalla Sopara East 401209</span>
               </Link>
             </div>
           </motion.div>

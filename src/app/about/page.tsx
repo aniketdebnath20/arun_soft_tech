@@ -55,12 +55,12 @@ export default function AboutPage() {
               <div className="space-y-6 text-muted-foreground leading-relaxed">
                 <p>
                   ArunSoftTech was born from a simple belief: technology should empower, not complicate.
-                  Founded in 2018, we started as a small team with big dreams and an unwavering
+                  Founded in 2024, we started as a small team with big dreams and an unwavering
                   commitment to excellence.
                 </p>
                 <p>
                   Today, we&apos;re proud to be a leading digital solutions provider, having helped over
-                  150 businesses transform their digital presence and achieve remarkable growth.
+                  15 businesses transform their digital presence and achieve remarkable growth.
                 </p>
               </div>
             </div>

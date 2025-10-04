@@ -112,7 +112,7 @@ export function Hero() {
         >
           <div className="inline-flex items-center gap-8 px-8 py-4 rounded-3xl  text-muted-foreground">
             <div className="text-center">
-              <div className="text-3xl font-bold text-gradient">150+</div>
+              <div className="text-3xl font-bold text-gradient">15+</div>
               <div className="text-sm">Projects Delivered</div>
             </div>
             <div className="w-px h-12 bg-gradient-to-b from-transparent via-slate-400 to-transparent"></div>

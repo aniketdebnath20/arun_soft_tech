@@ -511,7 +511,7 @@ export const teamMembers: TeamMember[] = [
 ];
 
 export const team = [
-  { name: 'Arun Charturvedi', role: 'Founder', bio: 'Visionary leader with 5+ years in tech innovation.', image: 'AC', color: 'from-blue-500 to-cyan-500' },
+  { name: 'Arun Charturvedi', role: 'Founder', bio: 'Visionary leader with 1+ years in tech innovation.', image: 'AC', color: 'from-blue-500 to-cyan-500' },
   { name: 'Aniket Debnath', role: 'Chief Technology Officer & CEO', bio: 'Architect of scalable cloud solutions and modern web tech.', image: 'AD', color: 'from-purple-500 to-pink-500' },
   { name: 'Marcus Johnson', role: 'Head of Design', bio: 'Award-winning UI/UX designer creating intuitive experiences.', image: 'MJ', color: 'from-pink-500 to-rose-500' },
   { name: 'Emily Rodriguez', role: 'Mobile Lead', bio: 'Expert in cross-platform mobile development and optimization.', image: 'ER', color: 'from-green-500 to-emerald-500' },

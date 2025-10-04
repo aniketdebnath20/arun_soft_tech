@@ -191,7 +191,7 @@ export function Footer() {
                 </div>
                 <div className="flex items-center space-x-3 text-sm text-muted-foreground">
                   <Phone className="h-4 w-4 text-primary flex-shrink-0" />
-                  <span>+1 (234) 567-890</span>
+                  <span>+91 8779182671 </span>
                 </div>
                 <div className="flex items-center space-x-3 text-sm text-muted-foreground">
                   <MapPin className="h-4 w-4 text-primary flex-shrink-0" />

@@ -1,4 +1,3 @@
-
 import { NextResponse } from 'next/server';
 
 export async function POST(request: Request) {
@@ -6,19 +5,40 @@ export async function POST(request: Request) {
     const { email } = await request.json();
 
     if (!email || !email.includes('@')) {
-      return new Response(JSON.stringify({ error: 'Invalid email' }), { status: 400 });
+      return NextResponse.json(
+        { success: false, message: 'Invalid email' },
+        { status: 400 }
+      );
     }
 
     // Insert into MySQL
-    await db.query(
-      'INSERT INTO email_subscriptions (email) VALUES (?)',
-      [email]
+    // await db.query(
+    //   'INSERT INTO email_subscriptions (email) VALUES (?)',
+    //   [email]
+    // );
+    
+    const GOOGLE_SHEET_WEBHOOK = "https://script.google.com/macros/s/AKfycbz9VZZPnyGcrcgFHGHmDWnsf5NzhxSSCrYDLfVD1O0kT4_0nipwUuzkGKrNzYAzGBpPwg/exec";
+
+    // Fire-and-forget request
+    fetch(GOOGLE_SHEET_WEBHOOK, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email }),
+    }).catch(err => {
+      console.error('Google Sheets webhook error:', err);
+    });
+
+    // Immediately return success
+    return NextResponse.json(
+      { success: true, message: 'Subscribed successfully!' },
+      { status: 200 }
     );
-
-    return new Response(JSON.stringify({ message: 'Subscribed successfully!' }), { status: 200 });
-
   } catch (error) {
     console.error('API Error:', error);
-    return NextResponse.json({ message: 'An internal server error occurred.' }, { status: 500 });
+    return NextResponse.json(
+      { success: false, message: 'An internal server error occurred.' },
+      { status: 500 }
+    );
   }
 }

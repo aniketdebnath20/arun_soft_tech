@@ -187,7 +187,7 @@ export function Footer() {
               <div className="space-y-3">
                 <div className="flex items-center space-x-3 text-sm text-muted-foreground">
                   <Mail className="h-4 w-4 text-primary flex-shrink-0" />
-                  <span>hello@zenith.tech</span>
+                  <span>arunsofttech8@gmail.com</span>
                 </div>
                 <div className="flex items-center space-x-3 text-sm text-muted-foreground">
                   <Phone className="h-4 w-4 text-primary flex-shrink-0" />
@@ -195,7 +195,7 @@ export function Footer() {
                 </div>
                 <div className="flex items-center space-x-3 text-sm text-muted-foreground">
                   <MapPin className="h-4 w-4 text-primary flex-shrink-0" />
-                  <span>Innovation City, USA</span>
+                  <span>Mumbai</span>
                 </div>
               </div>
             </motion.div>
@@ -289,7 +289,7 @@ export function Footer() {
             viewport={{}}
             className="text-sm text-muted-foreground text-center md:text-left"
           >
-            © {new Date().getFullYear()} ZenithTech. All rights reserved. Built
+            © {new Date().getFullYear()} ArunSoftTech. All rights reserved. Built
             with passion for the future.
           </motion.div>
           <div className="flex items-center space-x-6">

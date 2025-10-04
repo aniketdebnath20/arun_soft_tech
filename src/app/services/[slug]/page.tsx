@@ -75,10 +75,11 @@ export default function ServicePage({ params }: ServicePageProps) {
               className={cn("w-24 h-24 mb-8 mx-auto rounded-3xl flex items-center justify-center text-white bg-gradient-to-br shadow-2xl transition-all duration-300 hover:scale-110 hover:shadow-primary/50", gradient)}>
               <Icon className="w-12 h-12" />
             </motion.div>
-            <motion.h1 variants={itemVariants} className="text-4xl md:text-6xl font-bold mb-6 text-gradient">
-              {title}
+            <motion.h1 variants={itemVariants} className="text-4xl md:text-6xl font-bold mb-6">
+              <span className='text-gradient'>{title}</span>
+              {/* {title} */}
             </motion.h1>
-            <motion.p variants={itemVariants} className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            <motion.p variants={itemVariants} className="text-md md:text-lg text-muted-foreground max-w-5xl mx-auto leading-relaxed">
               {longDescription}
             </motion.p>
           </div>
@@ -101,7 +102,9 @@ export default function ServicePage({ params }: ServicePageProps) {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-gradient">What We Offer</h2>
+            <h2 className="text-3xl md:text-4xl font-bold ">
+              <span className='text-gradient'> What  We Offer </span>
+            </h2>
             <p className="mt-4 text-lg text-muted-foreground">
               Core components of our {title} service.
             </p>
@@ -115,7 +118,7 @@ export default function ServicePage({ params }: ServicePageProps) {
           >
             {features.map((feature, index) => (
               <motion.div key={index} variants={itemVariants}>
-                <Card className="h-full rounded-2xl bg-card/50 glassmorphism neon-border transition-all duration-300 hover:shadow-2xl hover:shadow-primary/20 hover:-translate-y-2">
+                <Card className="h-full rounded-3xl bg-card/50 glassmorphism neon-border transition-all duration-500 hover:shadow-2xl hover:shadow-primary/20 hover:-translate-y-2">
                   <CardHeader>
                     <div className="flex items-start gap-4">
                       <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-primary/10">
@@ -140,7 +143,7 @@ export default function ServicePage({ params }: ServicePageProps) {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ amount: 0.2, once: true }}
         transition={{ duration: 0.8 }}
-        className="py-24 bg-muted/30"
+        className="py-24"
       >
         <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -150,7 +153,10 @@ export default function ServicePage({ params }: ServicePageProps) {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-gradient">Our Approach</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gradient">
+              <span className='text-gradient'> Our Approach </span>
+
+            </h2>
             <p className="mt-4 text-lg text-muted-foreground">
               A proven process for delivering outstanding results.
             </p>
@@ -177,7 +183,7 @@ export default function ServicePage({ params }: ServicePageProps) {
                       <step.icon className="w-8 h-8" />
                     </div>
                   </div>
-                  <Card className="w-full glassmorphism h-full">
+                  <Card className="w-full glassmorphism shadow-xl h-full">
                     <CardHeader>
                       <CardTitle className="text-xl font-bold">{index + 1}. {step.title}</CardTitle>
                     </CardHeader>
@@ -244,66 +250,6 @@ export default function ServicePage({ params }: ServicePageProps) {
           </div>
         </div>
       </motion.section>
-{/* 
-      {relatedProjects.length > 0 && (
-        <motion.section
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ amount: 0.2, once: true }}
-          transition={{ duration: 0.8 }}
-          className="py-24 bg-muted/30"
-        >
-          <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ amount: 0.3, once: true }}
-              transition={{ duration: 0.8 }}
-              className="text-center mb-16"
-            >
-              <h2 className="text-3xl md:text-4xl font-bold text-gradient">Related Work</h2>
-              <p className="mt-4 text-lg text-muted-foreground">
-                See our expertise in action with these projects.
-              </p>
-            </motion.div>
-            <motion.div
-              className="grid grid-cols-1 md:grid-cols-2 gap-8"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ amount: 0.2, once: true }}
-              variants={containerVariants}
-            > */}
-              {/* {relatedProjects.map((project) => (
-                <motion.div key={project.id} variants={itemVariants}>
-                  <Card className="group overflow-hidden transition-all duration-300 h-full flex flex-col glassmorphism hover-glow">
-                    <CardContent className="p-0 flex flex-col flex-grow">
-                      <div className="relative overflow-hidden aspect-video rounded-t-lg">
-                        <Image
-                          src={project.imageUrl}
-                          alt={project.title}
-                          fill
-                          data-ai-hint={project.imageHint}
-                          className="object-cover transition-transform duration-500 group-hover:scale-110"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-                      </div>
-                      <div className="p-6 flex flex-col flex-grow">
-                        <h3 className="text-xl font-bold text-foreground mb-2">{project.title}</h3>
-                        <p className="text-muted-foreground mb-4 text-sm flex-grow">{project.description}</p>
-                        <Button asChild size="sm" className="w-full mt-auto bg-gradient-to-r from-primary/80 to-accent/80 text-white transition-all duration-300 group-hover:from-primary group-hover:to-accent">
-                          <Link href={project.link}>
-                            View Project <ArrowRight className="ml-2 h-4 w-4" />
-                          </Link>
-                        </Button>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              ))} */}
-            {/* </motion.div>
-          </div>
-        </motion.section>
-      )} */}
 
       {/* CTA Section */}
       <motion.section
@@ -311,7 +257,7 @@ export default function ServicePage({ params }: ServicePageProps) {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ amount: 0.2, once: true }}
         transition={{ duration: 0.8 }}
-        className="py-24 bg-background"
+        className="py-24"
       >
         <div className="container mx-auto px-6">
           <div className="relative bg-muted/40 rounded-3xl p-10 md:p-16 overflow-hidden shadow-2xl hover:shadow-primary/10 transition-shadow">

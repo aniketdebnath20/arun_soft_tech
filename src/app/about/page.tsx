@@ -54,7 +54,7 @@ export default function AboutPage() {
               </h2>
               <div className="space-y-6 text-muted-foreground leading-relaxed">
                 <p>
-                  ZenithTech was born from a simple belief: technology should empower, not complicate.
+                  ArunSoftTech was born from a simple belief: technology should empower, not complicate.
                   Founded in 2018, we started as a small team with big dreams and an unwavering
                   commitment to excellence.
                 </p>
@@ -100,7 +100,7 @@ export default function AboutPage() {
             transition={{ duration: 0.8 }}
             className={`text-4xl md:text-6xl font-bold mb-16 tracking-tighter ${isDark ? 'text-white' : 'text-gray-900'}`}
           >
-            Meet Our <span className="gradient-text">Leadership</span>
+            <span className="text-gradient">Meet Our Leadership</span>
           </motion.h2>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">

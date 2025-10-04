@@ -62,7 +62,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <title>ArunSoftTech - Innovative Technology & Software Solutions</title>
-        <meta name="description" content="ZenithTech pioneers the future of technology with expert Web & Mobile Development, UI/UX Design, Cloud Solutions, and strategic Consulting." />
+        <meta name="description" content="ArunSoftTech pioneers the future of technology with expert Web & Mobile Development, UI/UX Design, Cloud Solutions, and strategic Consulting." />
         <meta name="keywords" content="web development, mobile app development, ui/ux design, cloud solutions, tech consulting" />
       </head>
       <body

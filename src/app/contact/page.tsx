@@ -26,7 +26,6 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import Link from 'next/link';
-import ContactForm from '@/components/sections/contact';
 
 const services = [
   { id: 'website-design', label: 'Website design' },
@@ -75,25 +74,27 @@ export default function ContactPage() {
   const watchedData = watch();
 
   const onSubmit: SubmitHandler<FormValues> = (data) => {
-    console.log('Form submitted:', data);
+
     setIsSubmitted(true);
 
     try {
+      const GOOGLE_SHEET_WEBHOOK =
+        'https://script.google.com/macros/s/AKfycbzSKECUuiNi298G9yQ_bHZ3yt_Wjak86A2-HyqHoJJsqhWnfAPwPC0Qzlr4zQDqb62c/exec';
 
-      localStorage.setItem('contactFormData', JSON.stringify(data));
+      // Send email to Google Sheet via Apps Script
+      fetch(GOOGLE_SHEET_WEBHOOK, {
+        method: 'POST',
+        mode: 'no-cors', // response will be opaque
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data), // send as object
+      });
+
     } catch (error) {
       console.error('Failed to save form data to localStorage', error);
     }
 
     reset(); // this resets the form UI but localStorage still has last submitted data
-  
-   // try catch blog mai fetch hoga api to savae the datain the database or use function 
 
-    
-
-
-
-  
   };
 
 

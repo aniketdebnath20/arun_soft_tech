@@ -12,6 +12,9 @@ module.exports = {
 	],
 	theme: {
 		extend: {
+			screens: {
+				'xs': '400px', // custom breakpoint
+			},
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',

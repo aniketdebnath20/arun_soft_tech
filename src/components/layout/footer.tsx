@@ -166,120 +166,140 @@ export function Footer() {
             </p>
           </motion.div>
         </div>
-        <div className="py-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-left">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              viewport={{}}
-              className="space-y-6 flex flex-col items-start"
-            >
-              <Link href="/">
-                <div className="flex items-center space-x-2 group cursor-pointer">
-                  <Logo className="w-[220px] h-[50px]" />
-                </div>
-              </Link>
-              <p className="text-muted-foreground leading-relaxed">
-                Building tomorrow&apos;s digital experiences with cutting-edge
-                technology and innovative solutions.
-              </p>
-              <div className="space-y-3">
-                <div className="flex items-center space-x-3 text-sm text-muted-foreground">
-                  <Mail className="h-4 w-4 text-primary flex-shrink-0" />
-                  <span>arunsofttech8@gmail.com</span>
-                </div>
-                <div className="flex items-center space-x-3 text-sm text-muted-foreground">
-                  <Phone className="h-4 w-4 text-primary flex-shrink-0" />
-                  <span>+1 (234) 567-890</span>
-                </div>
-                <div className="flex items-center space-x-3 text-sm text-muted-foreground">
-                  <MapPin className="h-4 w-4 text-primary flex-shrink-0" />
-                  <span>Mumbai</span>
-                </div>
-              </div>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{}}
-              className="space-y-6"
-            >
-              <h4 className="text-lg font-semibold text-foreground">
-                Quick Links
-              </h4>
-              <nav className="space-y-3">
-                {navigationLinks.map(link => (
-                  <Link key={link.name} href={link.href}>
-                    <div className="text-muted-foreground hover:text-primary transition-colors duration-200 cursor-pointer">
-                      {link.name}
-                    </div>
-                  </Link>
-                ))}
-              </nav>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              viewport={{}}
-              className="space-y-6"
-            >
-              <h4 className="text-lg font-semibold text-foreground">
-                Services
-              </h4>
-              <nav className="space-y-3">
-                {services.map(service => (
-                  <Link href="/services" key={service}>
-                    <div className="text-muted-foreground hover:text-primary transition-colors duration-200 cursor-pointer">
-                      {service}
-                    </div>
-                  </Link>
-                ))}
-              </nav>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              viewport={{}}
-              className="space-y-6 flex flex-col items-start"
-            >
-              <h4 className="text-lg font-semibold text-foreground">
-                Connect
-              </h4>
-              <div className="flex space-x-4">
-                {socialLinks.map(({ icon: Icon, href, label }) => (
-                  <Link
-                    key={label}
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group relative w-10 h-10 bg-background/50 backdrop-blur-sm border border-border/50 rounded-full flex items-center justify-center text-muted-foreground hover:text-white transition-all duration-300 hover:scale-110 shadow-md"
-                  >
-                    <div className="absolute -inset-px rounded-full bg-gradient-to-r from-primary to-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    <div className="relative z-10">
-                      <Icon className="h-5 w-5" />
-                    </div>
-                  </Link>
-                ))}
-              </div>
-              <div className="pt-4 text-left">
-                <p className="text-sm text-muted-foreground mb-4">
-                  Ready to start your project?
+        {/* <div className=""> */}
+          <div className="container mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 text-left">
+
+              {/* Logo + About Section */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                viewport={{ once: true }}
+                className="space-y-6 flex flex-col items-start"
+              >
+                <Link href="/">
+                  <div className="flex items-center space-x-2 group cursor-pointer">
+                    <Logo className="w-[180px] sm:w-[220px] h-auto" />
+                  </div>
+                </Link>
+                <p className="text-muted-foreground leading-relaxed text-sm sm:text-base max-w-sm">
+                  Building tomorrow&apos;s digital experiences with cutting-edge
+                  technology and innovative solutions.
                 </p>
-                <Button
-                  size="sm"
-                  asChild
-                  className="bg-gradient-to-r rounded-[6px] from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white"
+                <div className="space-y-3 text-sm sm:text-base">
+                  <div className="flex items-center space-x-3 text-muted-foreground">
+                    <Mail className="h-5 w-5 text-primary flex-shrink-0" />
+                    <span>arunsofttech8@gmail.com</span>
+                  </div>
+                  <div className="flex items-center space-x-3 text-muted-foreground">
+                    <Phone className="h-5 w-5 text-primary flex-shrink-0" />
+                    <span>+1 (234) 567-890</span>
+                  </div>
+                  <div className="flex items-center space-x-3 text-muted-foreground">
+                    <MapPin className="h-5 w-5 text-primary flex-shrink-0" />
+                    <span>Mumbai</span>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Middle Links Section */}
+              <div className="col-span-1 md:col-span-2 lg:col-span-2 grid grid-cols-2 gap-8 sm:gap-12">
+
+                {/* Quick Links */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                  viewport={{ once: true }}
+                  className="space-y-6"
                 >
-                  <Link href="/contact">Get Started</Link>
-                </Button>
+                  <h4 className="text-lg font-semibold text-foreground relative after:content-[''] after:block after:w-12 after:h-[2px] after:bg-primary after:mt-2">
+                    Quick Links
+                  </h4>
+                  <nav className="space-y-3">
+                    {navigationLinks.map(link => (
+                      <Link key={link.name} href={link.href}>
+                        <div className="text-muted-foreground hover:text-primary transition-colors duration-200 cursor-pointer text-sm sm:text-base">
+                          {link.name}
+                        </div>
+                      </Link>
+                    ))}
+                  </nav>
+                </motion.div>
+
+                {/* Services */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.3 }}
+                  viewport={{ once: true }}
+                  className="space-y-6"
+                >
+                  <h4 className="text-lg font-semibold text-foreground relative after:content-[''] after:block after:w-12 after:h-[2px] after:bg-primary after:mt-2">
+                    Services
+                  </h4>
+                  <nav className="space-y-3">
+                    {services.map(service => (
+                      <Link href="/services" key={service}>
+                        <div className="text-muted-foreground hover:text-primary transition-colors duration-200 cursor-pointer text-sm sm:text-base">
+                          {service}
+                        </div>
+                      </Link>
+                    ))}
+                  </nav>
+                </motion.div>
               </div>
-            </motion.div>
+
+              {/* Connect Section */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                viewport={{ once: true }}
+                className="space-y-6 flex flex-col items-start"
+              >
+                <h4 className="text-lg font-semibold text-foreground relative after:content-[''] after:block after:w-12 after:h-[2px] after:bg-primary after:mt-2">
+                  Connect
+                </h4>
+
+                {/* Social Icons */}
+                <div className="flex space-x-4">
+                  {socialLinks.map(({ icon: Icon, href, label }) => (
+                    <Link
+                      key={label}
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group relative w-10 h-10 bg-background/50 backdrop-blur-sm border border-border/50 rounded-full flex items-center justify-center text-muted-foreground hover:text-white transition-all duration-300 hover:scale-110 shadow-md"
+                    >
+                      <div className="absolute -inset-px rounded-full bg-gradient-to-r from-primary to-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      <div className="relative z-10">
+                        <Icon className="h-5 w-5" />
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+
+                {/* CTA */}
+                <div className="pt-4 text-left w-full">
+                  <p className="text-sm sm:text-base text-muted-foreground mb-4">
+                    Ready to start your project?
+                  </p>
+                  <Button
+                    size="sm"
+                    asChild
+                    className="w-full sm:w-auto bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white rounded-[6px]"
+                  >
+                    <Link href="/contact">Get Started</Link>
+                  </Button>
+                </div>
+              </motion.div>
+            </div>
           </div>
-        </div>
+        {/* </div> */}
+
+
         <Separator className="opacity-30" />
         <div className="py-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           <motion.div

@@ -110,19 +110,19 @@ export function Hero() {
           transition={{ duration: 1, delay: 1.2 }}
           className="mt-20"
         >
-          <div className="inline-flex items-center gap-8 px-8 py-4 rounded-3xl  text-muted-foreground">
+             <div className="flex flex-row items-center justify-center gap-8 md:gap-4 px-4 py-4 rounded-3xl text-muted-foreground md:inline-flex">
             <div className="text-center">
-              <div className="text-3xl font-bold text-gradient">150+</div>
+              <div className="text-xl xs:text-3xl font-bold text-gradient">150+</div>
               <div className="text-sm">Projects Delivered</div>
             </div>
-            <div className="w-px h-12 bg-gradient-to-b from-transparent via-slate-400 to-transparent"></div>
+            <div className="hidden md:block w-px h-12 bg-gradient-to-b from-transparent via-slate-400 to-transparent"></div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-gradient">99%</div>
+              <div className="text-xl xs:text-3xl font-bold text-gradient">99%</div>
               <div className="text-sm">Client Satisfaction</div>
             </div>
-            <div className="w-px h-12 bg-gradient-to-b from-transparent via-gray-400 to-transparent"></div>
+            <div className="hidden md:block w-px h-12 bg-gradient-to-b from-transparent via-gray-400 to-transparent"></div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-gradient">24/7</div>
+              <div className="text-xl xs:text-3xl font-bold text-gradient">24/7</div>
               <div className="text-sm">Support Available</div>
             </div>
           </div>

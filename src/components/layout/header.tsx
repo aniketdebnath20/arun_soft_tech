@@ -3,7 +3,15 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import {
+  Menu,
+  X,
+  ChevronDown,
+  Home,
+  LayoutGrid,
+  Info,
+  Mail,
+} from 'lucide-react';
 
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
@@ -11,25 +19,33 @@ import {
   Sheet,
   SheetContent,
   SheetHeader,
-  SheetTitle,
   SheetTrigger,
   SheetClose,
+  SheetTitle,
+  SheetDescription,
 } from '@/components/ui/sheet';
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from '@/components/ui/collapsible';
 import { motion, AnimatePresence } from 'framer-motion';
 import Logo from '../logo';
 import { ServicesMenu } from './services-menu';
+import { servicesMenu } from '@/lib/data';
 
 const navLinks = [
-  { href: '/', label: 'Home' },
-  { href: '/services', label: 'Services' },
-  { href: '/about', label: 'About' },
-  { href: '/contact', label: 'Contact' },
+  { href: '/', label: 'Home', icon: Home },
+  { href: '/services', label: 'Services', icon: LayoutGrid, collapsible: true },
+  { href: '/about', label: 'About', icon: Info },
+  { href: '/contact', label: 'Contact', icon: Mail },
 ];
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isServicesMenuOpen, setIsServicesMenuOpen] = useState(false);
+  const [openCollapsible, setOpenCollapsible] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,23 +55,32 @@ export function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleCollapsibleToggle = (label: string) => {
+    setOpenCollapsible(openCollapsible === label ? null : label);
+  };
+
   return (
     <motion.header
-      initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.5, ease: 'easeOut' }}
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
         isScrolled ? 'glassmorphism shadow-2xl' : 'bg-transparent'
       )}
       onMouseLeave={() => setIsServicesMenuOpen(false)}
     >
-      <div className="container flex h-20 items-center">
-        <Link href="/" className="flex items-center gap-3 group">
-          <Logo />
-        </Link>
-        <nav className="hidden md:flex items-center justify-center flex-1">
+      <div className="container mx-auto flex h-20 items-center justify-between px-6">
+        <div className="flex items-center">
+          <Link href="/" className="flex items-center gap-3 group">
+            <Logo />
+          </Link>
+        </div>
+
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-2">
           {navLinks.map(link =>
-            link.label === 'Services' ? (
+            link.collapsible ? (
               <div
                 key={link.href}
                 className="relative"
@@ -92,60 +117,97 @@ export function Header() {
             )
           )}
         </nav>
-        <div className="flex items-center justify-end md:w-auto">
-          <div className="md:hidden">
+
+        <div className="flex items-center">
+          {/* Mobile Navigation Trigger */}
+          <div className="flex items-center md:hidden">
             <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon">
-                  <AnimatePresence mode="wait">
-                    {isMobileMenuOpen ? (
-                      <motion.div
-                        key="close"
-                        initial={{ rotate: -90, opacity: 0 }}
-                        animate={{ rotate: 0, opacity: 1 }}
-                        exit={{ rotate: 90, opacity: 0 }}
-                      >
-                        <X className="w-5 h-5" />
-                      </motion.div>
-                    ) : (
-                      <motion.div
-                        key="menu"
-                        initial={{ rotate: 90, opacity: 0 }}
-                        animate={{ rotate: 0, opacity: 1 }}
-                        exit={{ rotate: -90, opacity: 0 }}
-                      >
-                        <Menu className="w-5 h-5" />
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+                <Button variant="ghost" size="icon" className="rounded-full p-6 md:hidden text-foreground hover:bg-muted/50 hover:shadow-lg hover:shadow-primary/20 transition-all duration-200">
+                  {isMobileMenuOpen ? (
+                    <X className="w-5 h-5 text-foreground" />
+                  ) : (
+                    <Menu className="w-5 h-5 text-foreground" />
+                  )}
                   <span className="sr-only">Open menu</span>
                 </Button>
               </SheetTrigger>
               <SheetContent
                 side="right"
-                className="w-[240px] sm:w-[300px] glassmorphism p-0"
+                className="w-full max-w-sm p-0 flex flex-col bg-background shadow-2xl"
               >
-                <SheetHeader className="border-b p-4">
-                  <SheetTitle className="sr-only">
-                    Mobile Navigation Menu
-                  </SheetTitle>
-                  <Link href="/" onClick={() => setIsMobileMenuOpen(false)}>
-                    <Logo />
-                  </Link>
+                <SheetHeader className="p-4 flex flex-row items-center justify-between border-b">
+                   <SheetTitle className="sr-only">Mobile Menu</SheetTitle>
+                   <SheetDescription className="sr-only">Main navigation menu for mobile devices.</SheetDescription>
+                  <SheetClose asChild>
+                    <Link href="/" className="w-full">
+                      <Logo />
+                    </Link>
+                  </SheetClose>
                 </SheetHeader>
-                <div className="flex flex-col h-full pt-6">
-                  <nav className="flex flex-col space-y-4 px-4 text-lg">
-                    {navLinks.map(link => (
-                      <SheetClose asChild key={link.href}>
-                        <Link
-                          href={link.href}
-                          className="transition-colors hover:text-primary px-2 py-1"
-                          onClick={() => setIsMobileMenuOpen(false)}
+                <div className="flex-grow overflow-y-auto">
+                  <nav className="flex flex-col space-y-1 p-4 text-base font-medium">
+                    {navLinks.map((link, index) =>
+                      link.collapsible ? (
+                        <Collapsible
+                          key={`${link.href}-${index}`}
+                          onOpenChange={() => handleCollapsibleToggle(link.label)}
+                          open={openCollapsible === link.label}
                         >
-                          {link.label}
-                        </Link>
-                      </SheetClose>
-                    ))}
+                          <div className="flex items-center justify-between w-full rounded-md px-3 py-2 transition-colors hover:bg-muted/50">
+                            <SheetClose asChild>
+                              <Link
+                                href={link.href}
+                                className="flex items-center gap-3 text-foreground"
+                                onClick={() => setIsMobileMenuOpen(false)}
+                              >
+                                <link.icon className="w-5 h-5 text-muted-foreground" />
+                                {link.label}
+                              </Link>
+                            </SheetClose>
+                            <CollapsibleTrigger>
+                              <ChevronDown
+                                className={cn(
+                                  'w-5 h-5 transition-transform duration-300',
+                                  openCollapsible === link.label ? 'rotate-180' : ''
+                                )}
+                              />
+                            </CollapsibleTrigger>
+                          </div>
+                          <CollapsibleContent>
+                            <div className="pl-8 mt-1 space-y-1 border-l ml-5">
+                              {servicesMenu.map(category =>
+                                category.items.map((item, itemIndex) => (
+                                  <SheetClose
+                                    asChild
+                                    key={`${item.href}-${itemIndex}`}
+                                  >
+                                    <Link
+                                      href={item.href}
+                                      className="block transition-colors text-muted-foreground hover:text-foreground rounded-md px-3 py-2"
+                                      onClick={() => setIsMobileMenuOpen(false)}
+                                    >
+                                      {item.title}
+                                    </Link>
+                                  </SheetClose>
+                                ))
+                              )}
+                            </div>
+                          </CollapsibleContent>
+                        </Collapsible>
+                      ) : (
+                        <SheetClose asChild key={`${link.href}-${index}`}>
+                          <Link
+                            href={link.href}
+                            className="flex items-center gap-3 transition-colors text-foreground hover:bg-muted/50 rounded-md px-3 py-2"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                          >
+                            <link.icon className="w-5 h-5 text-muted-foreground" />
+                            {link.label}
+                          </Link>
+                        </SheetClose>
+                      )
+                    )}
                   </nav>
                 </div>
               </SheetContent>
@@ -153,6 +215,8 @@ export function Header() {
           </div>
         </div>
       </div>
+
+      {/* Services Mega Menu */}
       <AnimatePresence>
         {isServicesMenuOpen && (
           <motion.div

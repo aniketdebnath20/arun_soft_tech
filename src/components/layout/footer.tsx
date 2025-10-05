@@ -87,34 +87,6 @@ export function Footer() {
 
   return (
     <footer className="relative overflow-hidden z-10">
-      {/* <div className="absolute inset-0 opacity-5">
-        <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <pattern
-              id="circuit"
-              width="60"
-              height="60"
-              patternUnits="userSpaceOnUse"
-            >
-              <path
-                d="M30 0 L30 30 L0 30 M60 30 L30 30 L30 60"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1"
-                className="text-primary"
-              />
-              <circle
-                cx="30"
-                cy="30"
-                r="2"
-                fill="currentColor"
-                className="text-accent"
-              />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#circuit)" />
-        </svg>
-      </div> */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="py-16 border-b border-border/30">
           <motion.div
@@ -194,7 +166,7 @@ export function Footer() {
                   </div>
                   <div className="flex items-center space-x-3 text-muted-foreground">
                     <Phone className="h-5 w-5 text-primary flex-shrink-0" />
-                    <span>+1 (234) 567-890</span>
+                    <span>+8779182671</span>
                   </div>
                   <div className="flex items-center space-x-3 text-muted-foreground">
                     <MapPin className="h-5 w-5 text-primary flex-shrink-0" />

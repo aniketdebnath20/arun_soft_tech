@@ -16,11 +16,13 @@ export async function POST(request: Request) {
     //   'INSERT INTO email_subscriptions (email) VALUES (?)',
     //   [email]
     // );
-    
-    const GOOGLE_SHEET_WEBHOOK = "https://script.google.com/macros/s/AKfycbz9VZZPnyGcrcgFHGHmDWnsf5NzhxSSCrYDLfVD1O0kT4_0nipwUuzkGKrNzYAzGBpPwg/exec";
+
+    const GOOGLE_SHEET_WEBHOOK = process.env.NEXT_PUBLIC_GOOGLE_EMAIL_SUBSCRIBE_API;
+    console.log(GOOGLE_SHEET_WEBHOOK)
+    await new Promise((resolve) => setTimeout(resolve, 400));
 
     // Fire-and-forget request
-    fetch(GOOGLE_SHEET_WEBHOOK, {
+     fetch(GOOGLE_SHEET_WEBHOOK as string, {
       method: 'POST',
       mode: 'no-cors',
       headers: { 'Content-Type': 'application/json' },

@@ -80,7 +80,7 @@ export function Services() {
                         </div>
                         <div className="w-full flex justify-between items-center mt-4">
                         <Button variant="link" asChild className="p-0 h-auto">
-                            <Link href="/contact">
+                            <Link href={`/services/${service.slug}`}>
                             Learn More <ArrowRight className="ml-2 h-4 w-4" />
                             </Link>
                         </Button>

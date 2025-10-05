@@ -7,7 +7,7 @@ import { ArrowRight } from 'lucide-react';
 
 export function ServicesMenu() {
   return (
-    <div className="w-full bg-background border-b border-border/50 shadow-lg">
+    <div className="w-full bg-[#fcfcfcf1] border-b border-border/50 shadow-lg">
       <div className="container mx-auto px-6 py-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-x-8 gap-y-4">
           <div className="md:col-span-3">

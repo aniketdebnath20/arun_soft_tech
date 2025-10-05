@@ -7,6 +7,10 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 
 export function Cta() {
+
+  const primaryEmail = "arunsofttech8@gmail.com";
+  const gmailComposeUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(primaryEmail)}&su=${encodeURIComponent("New project inquiry")}&body=${encodeURIComponent("Hi, I'd like to discuss a project with you.")}`;
+
   return (
     <section className="py-24">
       <div className="container mx-auto px-6">
@@ -23,7 +27,7 @@ export function Cta() {
               repeat: Infinity,
             }}
           ></motion.div>
-           <motion.div
+          <motion.div
             className="absolute -bottom-12 -left-12 w-32 h-32 bg-accent/10 rounded-full"
             animate={{
               y: [0, 10, 0, -10, 0],
@@ -52,7 +56,12 @@ export function Cta() {
                 size="lg"
                 className="bg-lime-300 text-black hover:bg-lime-400 rounded-full text-lg px-8 py-6 shadow-lg hover:shadow-xl transition-shadow"
               >
-                <Link href="/contact">
+                <Link
+                 href={gmailComposeUrl}
+                  aria-label="Open Gmail compose window"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Contact us
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Link>

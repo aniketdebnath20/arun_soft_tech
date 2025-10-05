@@ -26,6 +26,7 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import Link from 'next/link';
+import { strict } from 'assert';
 
 const services = [
   { id: 'website-design', label: 'Website design' },
@@ -72,30 +73,32 @@ export default function ContactPage() {
   });
 
   const watchedData = watch();
+  const primaryEmail = "arunsofttech8@gmail.com";
+  const gmailComposeUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(primaryEmail)}&su=${encodeURIComponent("New project inquiry")}&body=${encodeURIComponent("Hi, I'd like to discuss a project with you.")}`;
 
-  const onSubmit: SubmitHandler<FormValues> = (data) => {
-
+  const onSubmit: SubmitHandler<FormValues> = async (data) => {
     setIsSubmitted(true);
 
     try {
-      const GOOGLE_SHEET_WEBHOOK =
-        'https://script.google.com/macros/s/AKfycbzSKECUuiNi298G9yQ_bHZ3yt_Wjak86A2-HyqHoJJsqhWnfAPwPC0Qzlr4zQDqb62c/exec';
+      const GOOGLE_SHEET_WEBHOOK = process.env.NEXT_PUBLIC_GOOGLE_FORM_API;
 
-      // Send email to Google Sheet via Apps Script
-      fetch(GOOGLE_SHEET_WEBHOOK, {
+      // Wait 400 seconds
+      await new Promise((resolve) => setTimeout(resolve, 700));
+
+      await fetch(GOOGLE_SHEET_WEBHOOK as string, {
         method: 'POST',
-        mode: 'no-cors', // response will be opaque
+        mode: 'no-cors',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data), // send as object
+        body: JSON.stringify(data),
       });
 
     } catch (error) {
-      console.error('Failed to save form data to localStorage', error);
+      console.error('Failed to save form data', error);
     }
 
-    reset(); // this resets the form UI but localStorage still has last submitted data
-
+    reset();
   };
+
 
 
   if (isSubmitted) {
@@ -310,7 +313,10 @@ export default function ContactPage() {
                   <span>Start a live chat</span>
                 </Link>
                 <Link
-                  href="#"
+                  href={gmailComposeUrl}
+                  aria-label="Open Gmail compose window"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center gap-3 text-primary font-semibold hover:underline"
                 >
                   <Send className="w-5 h-5" />
@@ -340,7 +346,7 @@ export default function ContactPage() {
                 className="flex items-center gap-3 text-primary font-semibold hover:underline"
               >
                 <Phone className="w-5 h-5" />
-                <span>+1 (555) 000-0000</span>
+                <span>+8779182671</span>
               </Link>
             </div>
             <div>
@@ -348,13 +354,12 @@ export default function ContactPage() {
               <p className="text-muted-foreground mt-1 mb-4">
                 Chat to us in person at our Melbourne HQ.
               </p>
-              <Link
-                href="#"
-                className="flex items-center gap-3 text-primary font-semibold hover:underline"
+              <div
+                className="flex items-center gap-3 text-primary font-semibold"
               >
                 <MapPin className="w-5 h-5" />
-                <span>100 Smith Street, Collingwood VIC 3066</span>
-              </Link>
+                <span>Nallasopara (E), Near Station</span>
+              </div>
             </div>
           </motion.div>
         </div>

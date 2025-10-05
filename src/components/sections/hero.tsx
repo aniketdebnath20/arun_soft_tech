@@ -112,7 +112,7 @@ export function Hero() {
         >
              <div className="flex flex-row items-center justify-center gap-8 md:gap-4 px-4 py-4 rounded-3xl text-muted-foreground md:inline-flex">
             <div className="text-center">
-              <div className="text-xl xs:text-3xl font-bold text-gradient">150+</div>
+              <div className="text-xl xs:text-3xl font-bold text-gradient">50+</div>
               <div className="text-sm">Projects Delivered</div>
             </div>
             <div className="hidden md:block w-px h-12 bg-gradient-to-b from-transparent via-slate-400 to-transparent"></div>

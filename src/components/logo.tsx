@@ -1,14 +1,17 @@
-import Image from "next/image"
-import React from "react";
+import Image from "next/image";
+import { cn } from "@/lib/utils";
 
-const Logo = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>((props, ref) => {
- return (
-    <div ref={ref} {...props} className="h-auto w-[200px] flex item-center justify-center">
-      <Image src="/logo.svg" alt="logo" width={160} height={100}/>
-    </div>
- )
-});
-
-Logo.displayName = 'Logo';
+const Logo = () => {
+    return (
+        <div className={cn("w-[16rem] h-[7rem] flex items-center justify-center")}>
+            <Image
+                src="/logo.png"
+                alt="logo"
+                width={240}
+                height={240}
+            />
+        </div>
+    );
+};
 
 export default Logo;

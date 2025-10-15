@@ -306,7 +306,9 @@ export default function ContactPage() {
               </p>
               <div className="space-y-3">
                 <Link
-                  href="#"
+                  href="https://wa.me/8779182671"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center gap-3 text-primary font-semibold hover:underline"
                 >
                   <MessageSquare className="w-5 h-5" />
@@ -342,7 +344,7 @@ export default function ContactPage() {
                 Call our team Mon-Fri from 8am to 5pm.
               </p>
               <Link
-                href="#"
+                 href="tel:+8779182671"
                 className="flex items-center gap-3 text-primary font-semibold hover:underline"
               >
                 <Phone className="w-5 h-5" />
@@ -352,7 +354,7 @@ export default function ContactPage() {
             <div>
               <h3 className="text-lg font-semibold">Visit us</h3>
               <p className="text-muted-foreground mt-1 mb-4">
-                Chat to us in person at our Melbourne HQ.
+                Chat to us in person at our Company.
               </p>
               <div
                 className="flex items-center gap-3 text-primary font-semibold"

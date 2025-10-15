@@ -36,7 +36,6 @@ const services = [
   'Security & Audits',
 ];
 const socialLinks = [
-  { icon: Github, href: '#', label: 'GitHub' },
   { icon: Twitter, href: '#', label: 'Twitter' },
   { icon: Linkedin, href: '#', label: 'LinkedIn' },
   { icon: Instagram, href: '#', label: 'Instagram' },
@@ -152,7 +151,7 @@ export function Footer() {
               >
                 <Link href="/">
                   <div className="flex items-center space-x-2 group cursor-pointer">
-                    <Logo className="w-[180px] sm:w-[220px] h-auto" />
+                    <Logo />
                   </div>
                 </Link>
                 <p className="text-muted-foreground leading-relaxed text-sm sm:text-base max-w-sm">

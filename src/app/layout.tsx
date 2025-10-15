@@ -1,18 +1,20 @@
 
 'use client';
 
-import { Inter } from 'next/font/google';
 import './globals.css';
+import { Inter } from 'next/font/google';
 import { cn } from '@/lib/utils';
 import { ThemeProvider } from '@/components/theme-provider';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import { Toaster } from '@/components/ui/toaster';
-import { Suspense, useState, useEffect } from 'react';
+import React, { Suspense, useState, useEffect, useRef } from 'react';
 import { NavigationEvents } from '@/components/navigation-events';
 import { PageLoader } from '@/components/page-loader';
 import IntroAnimation from '@/components/intro-animation';
 import { AnimatedBackground } from '@/components/ui/animated-background';
+import { TooltipProvider } from '@/components/ui/tooltip';
+import { FloatingActionButtons } from '@/components/floating-contact-button';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
@@ -21,9 +23,10 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   const [isClient, setIsClient] = useState(false);
   const [showIntro, setShowIntro] = useState(true);
-  // const [isPageLoading, setIsPageLoading] = useState(true);
+ const dragConstraintRef = useRef<HTMLDivElement | null>(null);
   const [contentVisible, setContentVisible] = useState(false);
 
   useEffect(() => {
@@ -79,22 +82,26 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="relative flex min-h-dvh flex-col">
-            <Header />
-            <div id="content-wrapper" className={cn("flex-1 transition-opacity duration-1000", contentVisible ? "opacity-100" : "opacity-0")}>
-              <main className="relative z-10">{children}</main>
+          <TooltipProvider>
+            <div className="relative flex min-h-dvh flex-col">
+              <Header />
+              <div id="content-wrapper" className={cn("flex-1 transition-opacity duration-1000", contentVisible ? "opacity-100" : "opacity-0")}>
+                <main className="relative z-10">{children}</main>
+              </div>
+              <Footer />
             </div>
-            <Footer />
-          </div>
-          <Toaster />
-          {isClient && (
-            <Suspense>
-              <NavigationEvents />
-            </Suspense>
-          )}
-          {isClient && <PageLoader />}
+            <Toaster />
+            {isClient && (
+              <Suspense>
+                <NavigationEvents />
+              </Suspense>
+            )}
+            {isClient && <PageLoader />}
+            <div ref={dragConstraintRef} className="fixed inset-0 z-[50] pointer-events-none" />
+            {isClient && <FloatingActionButtons dragConstraintRef={dragConstraintRef} />}
+          </TooltipProvider>
         </ThemeProvider>
       </body>
-    </html>
+    </html >
   );
 }

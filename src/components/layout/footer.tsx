@@ -8,12 +8,11 @@ import {
   Mail,
   Phone,
   MapPin,
-  Github,
-  Twitter,
-  Linkedin,
-  ArrowUp,
   Loader2,
   Instagram,
+  Facebook,
+  Linkedin,
+  ArrowUp,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -36,9 +35,9 @@ const services = [
   'Security & Audits',
 ];
 const socialLinks = [
-  { icon: Twitter, href: '#', label: 'Twitter' },
+  { icon: Facebook, href: 'https://www.facebook.com/profile.php?id=61582587444066', label: 'Facebool' },
   { icon: Linkedin, href: '#', label: 'LinkedIn' },
-  { icon: Instagram, href: '#', label: 'Instagram' },
+  { icon: Instagram, href: 'https://www.instagram.com/arunsofttech/', label: 'Instagram' },
 ];
 
 export function Footer() {

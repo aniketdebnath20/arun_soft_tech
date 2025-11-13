@@ -71,14 +71,14 @@ export function Header() {
       onMouseLeave={() => setIsServicesMenuOpen(false)}
     >
       <div className="container mx-auto flex h-20 items-center justify-between px-6">
-        <div className="flex items-center">
+        <div className="flex items-center gap-10">
           <Link href="/" className="flex items-center gap-3 group">
             <Logo />
           </Link>
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-2">
+        <nav className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-2 pl-20">
           {navLinks.map(link =>
             link.collapsible ? (
               <div
